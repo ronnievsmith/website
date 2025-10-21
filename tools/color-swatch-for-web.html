@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><script defer="defer" src="https://www.googletagmanager.com/gtag/js?id=G-J4Y121DTE5"></script><title>Material Design Color Swatch Tool for Developers</title><meta property="og:title" content="Material Design Color Swatch Tool for Developers"><meta property="og:site_name" content="Material Design Color Swatch Tool for Developers"><meta property="og:url" content="https://ronnievsmith.com/tools/color-swatch-for-web"><link rel="canonical" href="https://ronnievsmith.com/tools/color-swatch-for-web"><meta property="og:image" content="https://ronnievsmith.com/media/colors.jpg"><meta property="twitter:image:src" content="https://ronnievsmith.com/media/colors.jpg"><meta name="description" content="A graphical user interface tool to assist in choosing brilliant colors from Google Material Design color pallete."><meta property="og:description" content="A graphical user interface tool to assist in choosing brilliant colors from Google Material Design color pallete."><link rel="icon" type="image/png" href="../media/favicon-336x336.png" sizes="336x336"><link rel="icon" type="image/png" href="../media/favicon-288x288.png" sizes="288x288"><link rel="icon" type="image/png" href="../media/favicon-240x240.png" sizes="240x240"><link rel="icon" type="image/png" href="../media/favicon-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="../media/favicon-144x144.png" sizes="144x144"><link rel="icon" type="image/png" href="../media/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="../media/favicon-48x48.png" sizes="48x48"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:locale" content="en_US"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200"><meta property="og:type" content="website"><meta name="author" content="Ronnie Smith"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@ronnievsmith"><meta name="twitter:creator" content="@ronnievsmith"><meta property="og:type" content="website"><meta name="theme-color" content="#2962ff"><meta content="IE=Edge" http-equiv="X-UA-Compatible"><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Web Developer Tools",
+        "item": "https://ronnievsmith.com/tools"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Color Swatch for Web",
+        "item": "https://ronnievsmith.com/tools/color-swatch-for-web"
+      }]
+    }</script><link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.red-orange.min.css"><style>body > main > section {
+        display: grid;
+    }
+    .colors{
+        margin-top:5em;
+    }
+    .code{
+        font-size:2em;
+        margin-left:.5em;
+        padding-bottom:16px;
+    }
+    .swatch-area{
+        max-height:420px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border:1px solid white;
+    }
+    .swatch{
+        min-width:48%;
+        min-height:38px;
+        border-radius:0;
+        border:none;
+        padding:0;
+        margin:1px;
+        align-self:auto;
+        flex: 1 1 auto;
+    }
+    .swatch:hover{
+        cursor:pointer;
+    }
+    .color{
+        min-width:99%;
+        min-height:256px;
+        border-radius:0;
+        border:none;
+        padding:0;
+        margin:1px;
+        align-self:auto;
+        flex: 1 1 auto;
+    }
+    .color:hover{
+        cursor:pointer;
+    }
+    .mdl-card__title{
+        display:block;
+    }
+    .capitalize {
+        text-transform: capitalize;
+    }
+    
+    #container{
+        flex: 0 1 auto;
+        align-self: auto;
+    }
+    .social-bar {
+        display: flex;
+        flex-flow: row wrap ;
+        justify-content: center;
+        align-content: center;
+        align-items: stretch;
+    }
+    .social-button {
+        flex: 0 1 auto;
+        align-self: auto;
+        margin-left:4px;
+    }
+    .social-button > span {
+        vertical-align: top !important;
+    }
+	.clean-anchor{
+	    text-decoration: none;
+	}
+    .flex-item{
+        font-size:large;
+    }</style><link rel="stylesheet" href="../app.min.css" type="text/css"></head><body><script>if (typeof(Storage) !== "undefined") {
+
+      if(localStorage.getItem("dark-mode")){
+        document.body.classList.add("dark-mode");
+      }
+
+      if(localStorage.getItem("large-text")) {
+        document.body.classList.add("large-text");
+      }
+
+
+      
+    }</script><header><a href="/"><figure><img src="/media/favicon-336x336.png" width="48" height="48" alt="logo"><figcaption>Ronnie Smith<br><small>New Orleans</small></figcaption></figure></a><nav><ul><li><a class="contact" href="#">Contact</a></li><li><search><form class="search-form"><input type="search" class="search" placeholder="search"> <button type="submit">Submit</button></form></search></li><li><button class="theme-button unstyle-button" title="Dark Mode Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button></li><li><button class="text-size-button unstyle-button" title="Text Size Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg></button></li></ul></nav><details><summary></summary><ul><li>FOLLOW</li><li><a href="https://github.com/ronnievsmith">GitHub</a></li><li><a href="https://www.linkedin.com/in/ronnieviennesmith">LinkedIn</a></li><li><a href="https://ronnievsmith.medium.com">Medium</a></li><li><a href="https://stackoverflow.com/users/4797603">Stack Overflow</a></li></ul></details></header><nav><details open><summary></summary><ul style="text-align: right;"><li><search><form class="search-form"><input type="search" class="search" placeholder="search"> <button type="submit">Submit</button></form></search></li><li><button class="theme-button unstyle-button" title="Dark Mode Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button></li><li><button class="text-size-button unstyle-button" title="Text Size Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg></button></li><li><a class="contact" href="#">Contact</a></li><li><a href="https://buy.stripe.com/aEUeYe3Uzgj65EcdQQ">Secure Payments</a></li></ul><ul><li>DEVELOPER TOOLS</li><li><a href="/tools/html-element-reference.html">HTML Element Reference</a></li><li><a href="/tools/html-character-codes-collection">HTML Char Codes</a></li><li><a href="/tools/schema-vocabulary-browser">Schema Browser</a></li><li><a href="/tools/css-flexbox">Flexbox Demo</a></li><li><a href="/tools/html-all-in-one">HTML All in 1 Page</a></li><li><a href="/tools/color-swatch-for-web">Material Color Swatch</a></li></ul><ul style="margin-top: 48px;"><li>GOOGLE CLOUD</li><li><a href="/google-cloud/google-cloud-best-practices">Google Cloud Best Practices</a></li><li><a href="/google-cloud/interconnect-locator">Interconnect Locator</a></li></ul></details></nav><main><section><p class="flex-item">"Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights." -<a href="https://material.io/guidelines/style/color.html" class="custom-anchor">Google</a></p><div class="mdl-grid" id="container"><div class="mdl-layout-spacer" id="spacer"></div><div class="mdl-card mdl-shadow--2dp" id="main-menu"><div class="mdl-card__title"><h2 class="mdl-card__title-text">MDL Swatch</h2><h4 class="mdl-card__subtitle-text">Select Color</h4></div><div class="mdl-card__media swatch-area mdl-color--white" id="rainbow"><div class="swatch mdl-color--red-500" data-color="red"></div><div class="swatch mdl-color--pink-500" data-color="pink"></div><div class="swatch mdl-color--purple-500" data-color="purple"></div><div class="swatch mdl-color--deep-purple-500" data-color="deep-purple"></div><div class="swatch mdl-color--indigo-500" data-color="indigo"></div><div class="swatch mdl-color--blue-500" data-color="blue"></div><div class="swatch mdl-color--light-blue-500" data-color="light-blue"></div><div class="swatch mdl-color--cyan-500" data-color="cyan"></div><div class="swatch mdl-color--teal-500" data-color="teal"></div><div class="swatch mdl-color--green-500" data-color="green"></div><div class="swatch mdl-color--light-green-500" data-color="light-green"></div><div class="swatch mdl-color--lime-500" data-color="lime"></div><div class="swatch mdl-color--yellow-500" data-color="yellow"></div><div class="swatch mdl-color--amber-500" data-color="amber"></div><div class="swatch mdl-color--orange-500" data-color="orange"></div><div class="swatch mdl-color--deep-orange-500" data-color="deep-orange"></div><div class="swatch mdl-color--brown-500" data-color="brown"></div><div class="swatch mdl-color--grey-500" data-color="grey"></div><div class="swatch mdl-color--blue-grey-500" data-color="blue-grey"></div><div class="swatch mdl-color--black" data-color="black"></div></div><div class="mdl-card__actions" id="rainbow-actions"></div></div></div><p class="twitter-container"><a class="twitter-follow-button" href="https://twitter.com/ronnievsmith"></a></p></section></main><footer><p style="font-weight: 100; margin:4px;">All Rights Reserved<br></p><address style="font-weight: 100; font-style: normal; margin:4px;">Ronnie Smith | 400 Poydras Street, Suite 2550 | New Orleans, LA 70130</address><p style="font-weight: 100; font-size:small; margin:4px;"><a href="/privacy">Privacy Policy</a>&nbsp;&nbsp; <a href="/service-terms">Services Terms</a>&nbsp;&nbsp; <a href="/terms">Website Terms</a></p></footer><script src="../app.min.js"></script><script>var doc = document;
+    
+    var mainMenu = doc.getElementById('main-menu');
+    var container = doc.getElementById('container');
+    var cardContainer = doc.getElementById('card-container');
+    var colors = ['red',
+    'pink',
+    'purple',
+    'deep-purple',
+    'indigo',
+    'blue',
+    'light-blue',
+    'cyan',
+    'teal',
+    'green',
+    'light-green',
+    'lime',
+    'yellow',
+    'amber',
+    'orange',
+    'deep-orange',
+    'brown',
+    'grey',
+    'blue-grey',
+    'black'];
+
+    var range = ['50',
+    '100',
+    '200',
+    '300',
+    '400',
+    '500',
+    '600',
+    '700',
+    '800',
+    '900'];
+    
+    var rangeExtended = ['50',
+    '100',
+    '200',
+    '300',
+    '400',
+    '500',
+    '600',
+    '700',
+    '800',
+    '900',
+    'A100',
+    'A200',
+    'A400',
+    'A700'];
+        
+    function attachClickListeners(){
+        var swatches = doc.getElementsByClassName('swatch');
+        
+        for (var i = 0; i < swatches.length; i++) {
+            swatches[i].addEventListener("click", clicked, false);
+            //Do something
+        }
+    }
+    
+    attachClickListeners();
+
+    function removeHighlight(){
+        var swatches = doc.getElementsByClassName('swatch');
+        for (var i = 0; i < swatches.length; i++) {
+            swatches[i].classList.remove('highlight');
+        }
+    }
+
+    function removeSwatches(){
+        var swatches = doc.getElementsByClassName('swatch');
+        for (var i = 0; i < swatches.length; i++) {
+            swatches[i].classList.remove('highlight');
+        }
+    }    
+    
+    function clicked(evt) {
+        
+        //remove highlight class from all swatch classed elements
+        removeHighlight();
+        
+        var elem = evt.target;
+        var cssbg = window.getComputedStyle(elem,null).getPropertyValue("background-color");
+        
+        var cls = evt.target.className;
+        var colorName = cls.split("--").pop();
+        var color = colorName.replace(/[0-9]/g, '');
+        color = colorName.replace(/-\s*$/, "");
+        
+        // If click is from main menu then do this and exit
+        for (var i = 0; i < colors.length; i++) {
+            if(elem.dataset.color === colors[i]){
+                mainMenu.style.display = "none";
+                makeCard(elem.dataset.color);
+                return;
+            }
+        }
+        
+        var st1 = doc.getElementById('subtitle-1');
+        var st2 = doc.getElementById('subtitle-2');
+        var st3 = doc.getElementById('subtitle-3');
+        var st4 = doc.getElementById('subtitle-4');
+        var title = doc.getElementById('title');
+        var swatchArea = doc.getElementById('swatch-area');
+        
+        var str = cssbg.split("(").pop();
+        str =  str.split(')')[0];
+        var rgbArray = str.split(',');
+        var r = rgbArray[0];
+        var g = rgbArray[1];
+        var b = rgbArray[2];
+        
+        var hex = rgb2hex(cssbg);
+        var rgb = cssbg;
+        
+        st1.innerHTML = hex;
+        st2.innerHTML = cssbg;
+        st3.innerHTML = 'mdl-color-text--' + colorName;
+        st4.innerHTML = 'mdl-color--' + colorName;
+        title.innerHTML = colorName;
+        
+        swatchArea.innerHTML = "";
+        
+        var div =  doc.createElement("div");
+        div.className = "color mdl-color--" + colorName;
+        div.id = "swatch";
+        div.dataset.color = color;
+        swatchArea.appendChild(div);
+        
+        var btn = doc.getElementById("back");
+        btn.dataset.page = 3;
+    }
+    
+    function makeCard(color){
+        var entry = doc.getElementById('spacer');
+        
+        var cardDiv =  doc.createElement("div");
+        cardDiv.id="card";
+        cardDiv.className = "mdl-card mdl-shadow--2dp";
+
+        insertAfter(cardDiv,entry);
+        
+        var cardTitle = doc.createElement("div");
+        cardTitle.className = "mdl-card__title";
+        cardDiv.appendChild(cardTitle);
+        
+        var titleText = doc.createElement("h2");
+        titleText.className = "mdl-card__title-text capitalize";
+        titleText.id = "title";
+        titleText.innerHTML = color;
+        cardTitle.appendChild(titleText);
+        
+        var subtitleText1 = doc.createElement("h4");
+        subtitleText1.className = "mdl-card__subtitle-text";
+        subtitleText1.id = "subtitle-1";
+        subtitleText1.innerHTML = "Choose Shade";
+        cardTitle.appendChild(subtitleText1);
+
+        var subtitleText2 = doc.createElement("h4");
+        subtitleText2.className = "mdl-card__subtitle-text";
+        subtitleText2.id = "subtitle-2";
+        //subtitleText2.innerHTML = "Subtitle 2";
+        cardTitle.appendChild(subtitleText2);
+
+        var subtitleText3 = doc.createElement("h4");
+        subtitleText3.className = "mdl-card__subtitle-text";
+        subtitleText3.id = "subtitle-3";
+        //subtitleText3.innerHTML = "Subtitle 3";
+        cardTitle.appendChild(subtitleText3);
+        
+        var subtitleText4 = doc.createElement("h4");
+        subtitleText4.className = "mdl-card__subtitle-text";
+        subtitleText4.id = "subtitle-4";
+        //subtitleText4.innerHTML = "Subtitle 4";
+        cardTitle.appendChild(subtitleText4);
+        
+        var swatchArea = doc.createElement("div");
+        swatchArea.className = "mdl-card__media swatch-area mdl-color--white";
+        swatchArea.id = "swatch-area";
+        
+        if(color === 'brown' || color === 'grey' || color === 'blue-grey'){
+            for (var i = 0; i < range.length; i++) {
+                var div = doc.createElement("div");
+                div.className = "swatch mdl-color--" + color + "-" + range[i];
+                swatchArea.appendChild(div);
+            }
+        } else if (color === 'black'){
+                var div = doc.createElement("div");
+                var div2 = doc.createElement("div");
+                div.className = "swatch mdl-color--black";
+                div2.className = "swatch mdl-color--white";
+                swatchArea.appendChild(div);
+                swatchArea.appendChild(div2);
+        } else {
+            for (var i = 0; i < rangeExtended.length; i++) {
+                var div = doc.createElement("div");
+                div.className = "swatch mdl-color--" + color + "-" + rangeExtended[i];
+                swatchArea.appendChild(div);
+            }            
+        }
+        cardDiv.appendChild(swatchArea);
+
+        var cardActions = doc.createElement("div");
+        cardActions.className = "mdl-card__actions";
+        cardDiv.appendChild(cardActions);
+        
+        var btn = doc.createElement("button");
+        btn.className = "mdl-button mdl-js-button mdl-js-ripple-effect";
+        btn.id = "back";
+        btn.dataset.page = 2;
+        btn.innerHTML = "Back";
+        cardActions.appendChild(btn);
+        btn.addEventListener("click", back, false);
+        attachClickListeners();
+        window.componentHandler.upgradeAllRegistered();
+    }
+
+    function back(){
+        var card = doc.getElementById('card');
+        
+        if(this.dataset.page == 2){
+            card.parentNode.removeChild(card);
+            mainMenu.style.display = "initial";
+            window.componentHandler.upgradeAllRegistered();
+        }
+        if(this.dataset.page == 3){
+            var div = doc.getElementById('swatch');
+            var cls = div.className;
+            var colorName = cls.split("--").pop();
+            var color = colorName.replace(/[0-9]/g, '');
+            color = color.replace(/[A-Z]/g, '');
+            color = color.replace(/-\s*$/, "");
+            
+            card.parentNode.removeChild(card);            
+            
+            //render black page
+            if(color === 'white'){
+                color = 'black';
+            }
+            
+            makeCard(color);
+            var btn = doc.getElementById("back");
+            btn.dataset.page = 2;
+        }
+    }
+    function rgb2hex(rgb) {
+         if (  rgb.search("rgb") == -1 ) {
+              return rgb;
+         } else {
+            rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+            function hex(x) {
+               return ("0" + parseInt(x).toString(16)).slice(-2);
+            }
+            return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]); 
+         }
+    }
+    function insertAfter(newNode, referenceNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }</script></body></html>

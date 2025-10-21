@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /search
+Disallow: /404
+Disallow: /lunr-sample
+Disallow: /fonts
+Allow: /

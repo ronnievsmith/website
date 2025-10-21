@@ -1,0 +1,897 @@
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><script defer="defer" src="https://www.googletagmanager.com/gtag/js?id=G-J4Y121DTE5"></script><title>Google Cloud Interconnect Locator - An Interactive Map Of Google Cloud Interconnect Facilities</title><meta property="og:title" content="Google Cloud Interconnect Locator - An Interactive Map Of Google Cloud Regions and Cloud Interconnect Facilities"><meta property="og:site_name" content="Google Cloud Interconnect Locator - An Interactive Map Of Google Cloud Regions and Cloud Interconnect Facilities"><meta property="og:url" content="https://ronnievsmith.com/google-cloud/interconnect-map"><link rel="canonical" href="https://ronnievsmith.com/google-cloud/interconnect-map"><meta property="og:image" content="https://ronnievsmith.com/media/card.jpg"><meta property="twitter:image:src" content="https://ronnievsmith.com/media/card.jpg"><meta name="description" content="View the physical locations, addresses, status, names of Google Interconnect Facilities worldwide."><meta property="og:description" content="View the physical locations, addresses, status, names of Google Interconnect Facilities worldwide."><link rel="icon" type="image/png" href="../media/favicon-336x336.png" sizes="336x336"><link rel="icon" type="image/png" href="../media/favicon-288x288.png" sizes="288x288"><link rel="icon" type="image/png" href="../media/favicon-240x240.png" sizes="240x240"><link rel="icon" type="image/png" href="../media/favicon-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="../media/favicon-144x144.png" sizes="144x144"><link rel="icon" type="image/png" href="../media/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="../media/favicon-48x48.png" sizes="48x48"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:locale" content="en_US"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200"><meta property="og:type" content="website"><meta name="author" content="Ronnie Smith"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@ronnievsmith"><meta name="twitter:creator" content="@ronnievsmith"><meta property="og:type" content="website"><meta name="theme-color" content="#2962ff"><meta content="IE=Edge" http-equiv="X-UA-Compatible"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://ronnievsmith.com",
+  "logo": "https://ronnievsmith.com/media/favicon-192x192.png"
+}</script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Google Cloud Documents",
+        "item": "https://ronnievsmith.com/google-cloud"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "google-cloud-best-practices",
+        "item": "https://ronnievsmith.com/google-cloud/interconnect-map"
+      }]
+    }</script><link rel="stylesheet" href="../app.min.css" type="text/css"><style>#map {
+          height: 400px; /* The height is 400 pixels */
+          width: 100%; /* The width is the width of the web page */
+      }
+.hidden {
+  display:none;
+}
+.site {
+/*  background-color: #fafafa;*/
+  border-radius: 8px;
+  color: #212121;
+  font-size: 14px;
+  padding: 6px;
+  position: relative;
+  transition: all 0.3s ease-out;
+/*  width:320px;*/
+    border-radius: 8px;
+/*  border-left: 8px solid;*/
+}
+
+/*.site::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #212121;
+}*/
+
+.site .site-details {
+/*  display: none;*/
+}
+.site .site-header {
+  max-width:256px;
+
+}
+
+.site .site-address {
+
+margin-top:12px;
+margin-bottom:12px;
+}
+
+/*
+ * site styles in show more state.
+ */
+
+.available {
+  border-color:#00c853;
+}
+
+.gm-style .controls {
+  font-size: 28px; /* this adjusts the size of all the controls */
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 300;
+  height: 1em;
+  margin: 6px;
+  text-align: center;
+  user-select: none;
+  padding: 2px;
+  width: 1em;
+}
+
+.gm-style .controls button {
+  border: 0;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.gm-style .controls button:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.gm-style .controls.zoom-control {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.gm-style .controls.zoom-control button {
+  font: 0.85em Arial;
+  margin: 1px;
+  padding: 0;
+}
+
+.gm-style .controls.maptype-control {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+.gm-style .controls.maptype-control button {
+  display: inline-block;
+  font-size: 0.5em;
+  margin: 0 1px;
+  padding: 0 6px;
+}
+
+.gm-style .controls.maptype-control.maptype-control-is-map .maptype-control-map {
+  font-weight: 700;
+}
+
+.gm-style .controls.maptype-control.maptype-control-is-satellite .maptype-control-satellite {
+  font-weight: 700;
+}
+
+.gm-style .controls.fullscreen-control button {
+  display: block;
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
+}
+
+.gm-style .controls.fullscreen-control .fullscreen-control-icon {
+  border-style: solid;
+  height: 0.25em;
+  position: absolute;
+  width: 0.25em;
+}
+
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-top-left {
+  border-width: 2px 0 0 2px;
+  left: 0.1em;
+  top: 0.1em;
+}
+
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-top-left {
+  border-width: 0 2px 2px 0;
+}
+
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-top-right {
+  border-width: 2px 2px 0 0;
+  right: 0.1em;
+  top: 0.1em;
+}
+
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-top-right {
+  border-width: 0 0 2px 2px;
+}
+
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-bottom-left {
+  border-width: 0 0 2px 2px;
+  left: 0.1em;
+  bottom: 0.1em;
+}
+
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-left {
+  border-width: 2px 2px 0 0;
+}
+
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-bottom-right {
+  border-width: 0 2px 2px 0;
+  right: 0.1em;
+  bottom: 0.1em;
+}
+
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-right {
+  border-width: 2px 0 0 2px;
+}
+.property {
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  color: #263238;
+  display: flex;
+  font-size: 14px;
+  gap: 15px;
+  height: 30px;
+  justify-content: center;
+  padding: 4px;
+  position: relative;
+  position: relative;
+  transition: all 0.3s ease-out;
+  width: 30px;
+}
+
+.property::after {
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #FFFFFF;
+  content: "";
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 95%;
+  transform: translate(-50%, 0);
+  transition: all 0.3s ease-out;
+  width: 0;
+  z-index: 1;
+}
+
+.property .icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.property .icon svg {
+  height: 20px;
+  width: auto;
+}
+
+.property .details {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+}
+.property.highlight {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  height: 80px;
+  padding: 8px 15px;
+  width: auto;
+}
+
+.property.highlight::after {
+  border-top: 9px solid #FFFFFF;
+}
+
+.property.highlight .details {
+  display: flex;
+}
+
+.property.highlight .icon svg {
+  width: 50px;
+  height: 50px;
+}
+.control-button {
+  backgroundColor:"#fff";
+  border: "2px solid #fff";
+  borderRadius :"3px";
+  boxShadow : "0 2px 6px rgba(0,0,0,.3)";
+  color : "rgb(25,25,25)";
+  cursor : "pointer";
+  fontFamily : "Roboto,Arial,sans-serif";
+  fontSize : "16px";
+  lineHeight : "38px";
+  margin : "8px 0 22px";
+  padding : "0 5px";
+  textAlign : "center";  
+}</style></head><body class="body-nav-side"><script>if (typeof(Storage) !== "undefined") {
+
+      if(localStorage.getItem("dark-mode")){
+        document.body.classList.add("dark-mode");
+      }
+
+      if(localStorage.getItem("large-text")) {
+        document.body.classList.add("large-text");
+      }
+
+
+      
+    }</script><header><a href="/"><figure><img src="/media/favicon-336x336.png" width="48" height="48" alt="logo"><figcaption>Ronnie Smith<br><small>New Orleans</small></figcaption></figure></a><nav><ul><li><a class="contact" href="#">Contact</a></li><li><search><form class="search-form"><input type="search" class="search" placeholder="search"> <button type="submit">Submit</button></form></search></li><li><button class="theme-button unstyle-button" title="Dark Mode Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button></li><li><button class="text-size-button unstyle-button" title="Text Size Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg></button></li></ul></nav><details><summary></summary><ul><li>FOLLOW</li><li><a href="https://github.com/ronnievsmith">GitHub</a></li><li><a href="https://www.linkedin.com/in/ronnieviennesmith">LinkedIn</a></li><li><a href="https://ronnievsmith.medium.com">Medium</a></li><li><a href="https://stackoverflow.com/users/4797603">Stack Overflow</a></li></ul></details></header><nav><details open><summary></summary><ul style="text-align: right;"><li><search><form class="search-form"><input type="search" class="search" placeholder="search"> <button type="submit">Submit</button></form></search></li><li><button class="theme-button unstyle-button" title="Dark Mode Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button></li><li><button class="text-size-button unstyle-button" title="Text Size Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg></button></li><li><a class="contact" href="#">Contact</a></li><li><a href="https://buy.stripe.com/aEUeYe3Uzgj65EcdQQ">Secure Payments</a></li></ul><ul><li>DEVELOPER TOOLS</li><li><a href="/tools/html-element-reference.html">HTML Element Reference</a></li><li><a href="/tools/html-character-codes-collection">HTML Char Codes</a></li><li><a href="/tools/schema-vocabulary-browser">Schema Browser</a></li><li><a href="/tools/css-flexbox">Flexbox Demo</a></li><li><a href="/tools/html-all-in-one">HTML All in 1 Page</a></li><li><a href="/tools/color-swatch-for-web">Material Color Swatch</a></li></ul><ul style="margin-top: 48px;"><li>GOOGLE CLOUD</li><li><a href="/google-cloud/google-cloud-best-practices">Google Cloud Best Practices</a></li><li><a href="/google-cloud/interconnect-locator">Interconnect Locator</a></li></ul></details></nav><main><section><h1>Google Cloud Interconnect Locator</h1><h2>Connect Your Non-Google Cloud Networks to Google</h2><p>Google Virtual Private Cloud, VPC, networks are available via 50 Mbps to 100 Gbps enterprise grade connections either directly or via select service provider partners for users requiring higher throughput. If you can&#39;t physically meet Google&#39;s network in one of the colocation facilities shown below to reach your VPC networks, you can use Partner Interconnect to connect to service providers that connect directly to Google.</p><blockquote>We recommend using Cloud Interconnect instead of Direct Peering, Carrier Peering, and Verified Peering Provider, which you would only use in certain circumstances. For a quick summary, you can compare the features of Direct Peering with Cloud Interconnect, Carrier Peering with Cloud Interconnect, and Verified Peering Provider with Cloud Interconnect. <cite><a href="https://cloud.google.com/network-connectivity/docs/how-to/choose-product">Choosing a Network Connectivity product</a></cite></blockquote><h3>Google Cloud Interconnect Facilities</h3><div id="map"></div><div style="display: none"><div class="controls zoom-control"><button class="zoom-control-in" title="Zoom In">+</button> <button class="zoom-control-out" title="Zoom Out">−</button></div><div class="controls maptype-control maptype-control-is-map"><button class="maptype-control-map" title="Show road map">Map</button> <button class="maptype-control-satellite" title="Show satellite imagery">Satellite</button></div><div class="controls fullscreen-control"><button title="Toggle Fullscreen"><div class="fullscreen-control-icon fullscreen-control-top-left"></div><div class="fullscreen-control-icon fullscreen-control-top-right"></div><div class="fullscreen-control-icon fullscreen-control-bottom-left"></div><div class="fullscreen-control-icon fullscreen-control-bottom-right"></div></button></div></div></section></main><aside class="rss"><details class="" open=""><summary></summary><section><h3>Event Logs</h3><details class="aws-rss"><summary><data value="0">0</data>Amazon Web Services</summary></details><details class="azure-rss"><summary><data value="10">10</data>Microsoft Azure</summary><article><header><time datetime="2024-11-20">November 20, 2024</time>Azure DevOps Availability Degradation</header><p></p><p><strong>Final update</strong><br>Birendra Acharya, 11/20/2024 7:26:55 PM</p><p>The issue is now fully mitigated. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences.</p><p></p><a href="https://status.dev.azure.com/_event/567635742">Click for more</a></article><article><header><time datetime="2024-11-20">November 20, 2024</time>Azure DevOps Availability Degradation</header><p></p><p><strong>Final update</strong><br>Tomas Kasparek, 11/20/2024 3:35:33 PM</p><p>The issue is now fully mitigated. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/567618448">Click for more</a></article><article><header><time datetime="2024-11-20">November 20, 2024</time>Azure DevOps Availability Degradation</header><p></p><p><strong>Final update</strong><br>Tomas Kasparek, 11/20/2024 2:26:11 PM</p><p>The issue is now fully mitigated. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/567602655">Click for more</a></article><article><header><time datetime="2024-11-19">November 19, 2024</time>Availability Degradation in South East Asia</header><p></p><p><strong>Final update</strong><br>Maria Serrano Lopez, 11/19/2024 7:24:17 AM</p><p>The issue is now fully mitigated. There was some availability degradation in classic release pipeline service, only impacting some users of South East Asia region.<br>Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/567089350">Click for more</a></article><article><header><time datetime="2024-12-10">December 10, 2024</time>Availability Degradation in West Europe region</header><p></p><p><strong>Final update</strong><br>Premysl Hruby, 12/10/2024 3:43:33 PM</p><p>The issue is now fully mitigated. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/574419501">Click for more</a></article><article><header><time datetime="2024-11-16">November 16, 2024</time>Transient Availability Degradation</header><p></p><p><strong>Final update</strong><br>Devashish Salgaonkar, 11/16/2024 11:08:12 AM</p><p>The issue is now fully mitigated. Issue seems to be stemming from brief SQL maintenance. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/566074990">Click for more</a></article><article><header><time datetime="2024-11-25">November 25, 2024</time>Availability Degradation in Europe</header><p></p><p><strong>Final update</strong><br>Mira Marek, 11/25/2024 3:00:40 PM</p><p>The issue is now fully mitigated. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/569281282">Click for more</a></article><article><header><time datetime="2024-11-18">November 18, 2024</time>Issues in accessing Azure DevOps in North Europe</header><p></p><p><strong>Final update</strong><br>Gabriela Rosca, 11/18/2024 3:48:37 PM</p><p>The issue has been mitigated on our side, and there should no longer be any impact at this time. However, until we receive confirmation from Cloudnet that the issue has been permanently resolved on their end, there remains a risk that the issue could reoccur. We will continue to monitor the situation.</p><p></p><a href="https://status.dev.azure.com/_event/566717150">Click for more</a></article><article><header><time datetime="2024-12-16">December 16, 2024</time>Availability Degradation - Package Service</header><p></p><p><strong>Initial communication</strong><br>Rajendra Komandur, 12/16/2024 5:15:36 PM</p><p>Our engineers have mitigated the issue and the service has reported healthy.</p><p></p><a href="https://status.dev.azure.com/_event/576396499">Click for more</a></article><article><header><time datetime="2024-12-20">December 20, 2024</time>Availability Degradation accessing Search in UK regions</header><p></p><p><strong>Final update</strong><br>Mauro Ottaviani, 12/20/2024 11:57:15 PM</p><p>The issue is now fully mitigated. Our engineers will be investigating this further to learn from and reduce the risk of potential recurrences. We apologize for the impact this had on our customers.</p><p></p><a href="https://status.dev.azure.com/_event/577831169">Click for more</a></article></details><details class="gcp-rss"><summary><data value="1">1</data>Google Cloud Platform</summary><article><header><time datetime="2024-12-19">December 19, 2024</time>RESOLVED: Vertex Gemini API and Vertex AI in Firebase customers in us-central1 are experiencing elevated errors for requests to Gemini models</header><p>Incident began at 2024-12-19 11:36 and ended at 2024-12-19 17:35 (all times are US/Pacific).The issue with Vertex Gemini API has been resolved for all affected users as of Thursday, 2024-12-19 17:30 US/Pacific. We thank you for your patience while we worked on resolving the issue. Affected products: Vertex Gemini APIAffected locations: Iowa (us-central1)</p><a href="https://status.cloud.google.com/incidents/eXeR3hFQDmZJdPTjU43j">Click for more</a></article></details></section></details></aside><footer><p style="font-weight: 100; margin:4px;">All Rights Reserved<br></p><address style="font-weight: 100; font-style: normal; margin:4px;">Ronnie Smith | 400 Poydras Street, Suite 2550 | New Orleans, LA 70130</address><p style="font-weight: 100; font-size:small; margin:4px;"><a href="/privacy">Privacy Policy</a>&nbsp;&nbsp; <a href="/service-terms">Services Terms</a>&nbsp;&nbsp; <a href="/terms">Website Terms</a></p></footer><div id="search-dialog-wrapper"><dialog></dialog></div><script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEW6FxPiS12-Sw_J7-mcfbx8xId5rbv34&loading=async&libraries=marker,geometry&callback=initMap"></script><script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script><script src="https://www.unpkg.com/geofire@5.2.0/dist/geofire/geofire.min.js"></script><script src="../app.min.js"></script><script type="module"></script><script>const firebaseConfig = {
+        apiKey: "AIzaSyCdG_D3SMTnuKcivNv-r_lrlBQveZqHa3M",
+        authDomain: "gcp-interconnects.firebaseapp.com",
+        databaseURL: "https://gcp-interconnects-default-rtdb.firebaseio.com",
+        projectId: "gcp-interconnects",
+        storageBucket: "gcp-interconnects.appspot.com",
+        messagingSenderId: "1087256356077",
+        appId: "1:1087256356077:web:d534a4c6a5362c916d98e4",
+        measurementId: "G-MZKST8VYEE"
+      };
+
+      window.initMap = initMap;
+      var firebase = window.firebase;
+      firebase.initializeApp(firebaseConfig);
+      var ref = firebase.database().ref();
+      var firebaseKeysRef = firebase.database().ref('keys');
+      var firebaseSitesRef = firebase.database().ref('sites');
+      var firebaseRecordedRef = firebase.database().ref('recorded');
+      var firebaseZonesRef = firebase.database().ref('zones');
+      var timer = 10; //in milliseconds
+      var geoFire = new geofire.GeoFire(firebaseKeysRef);
+      var map
+      var markers = [];
+      var regionMarkers = [];
+      var sites = [];
+      var featuresObject = {};
+      var infoWindow;
+      const styleFill = {
+        strokeColor: "#810FCB",
+        strokeOpacity: 1.0,
+        strokeWeight: 3.0,
+        fillColor: "#810FCB",
+        fillOpacity: 0.5,
+      };
+      let featureLayer;
+      var regionControlDiv = document.createElement("div"); //interconnectControlDiv
+      var interconnectControlDiv = document.createElement("div");
+      var infoDiv = document.createElement("div");
+      var regionControl;
+      var interconnectControl;
+      var infoControl;
+      const parser = new DOMParser();
+      document.addEventListener('DOMContentLoaded', async function() {
+        try{
+          let snapshot = await ref.child("recorded").get();
+          let d = new Date(snapshot.val().timestamp);
+
+          let mapTimeEl = document.querySelector("#map-time");
+          mapTimeEl.setAttribute("datetime",d.toISOString().split('T')[0]);
+          mapTimeElText = document.createTextNode(d.toLocaleDateString('en-US'));
+          mapTimeEl.appendChild(mapTimeElText);
+
+          let mapLabelEl = document.querySelector("#map-label");
+          mapLabelEl.removeAttribute("hidden");
+        } catch (e){
+          console.log("error fetching record date from database" + e);
+        } finally {
+
+        };
+      });
+
+      const featureStyleOptions = {
+        strokeColor: "#810FCB",
+        strokeOpacity: 1.0,
+        strokeWeight: 3.0,
+        fillColor: "#810FCB",
+        fillOpacity: 0.5,
+      };
+      //let featureLayer;
+
+      async function initMap(){
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 32.779167, lng: -96.808891 },
+          zoom: 4,
+          minZoom: 3,
+          mapId: "9c786fded4fe2dd7",
+          disableDefaultUI: true,
+
+        });
+        initZoomControl(map);
+        initFullscreenControl(map);
+        featureLayer = map.getFeatureLayer("ADMINISTRATIVE_AREA_LEVEL_1");
+        infoWindow = new google.maps.InfoWindow();
+        google.maps.event.addListenerOnce(map, 'idle', processBounds);
+        regionControl = createRegionControl(map);
+        interconnectControl = createinterconnectControl(map);
+        //infoControl = createInfoControl(map);
+        regionControlDiv.appendChild(regionControl);
+        interconnectControlDiv.appendChild(interconnectControl);
+        //infoDiv.appendChild(infoControl);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(regionControlDiv);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(interconnectControlDiv);
+        //map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(infoDiv);
+        //google.maps.event.addListenerOnce(map, 'idle', addLayer);
+        google.maps.event.addListener(map,"bounds_changed", debounce (processBounds));
+      };
+
+function initZoomControl(map) {
+  document.querySelector(".zoom-control-in").onclick = function () {
+    map.setZoom(map.getZoom() + 1);
+  };
+
+  document.querySelector(".zoom-control-out").onclick = function () {
+    map.setZoom(map.getZoom() - 1);
+  };
+
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+    document.querySelector(".zoom-control"),
+  );
+}
+
+function initFullscreenControl(map) {
+  const elementToSendFullscreen = map.getDiv().firstChild;
+  const fullscreenControl = document.querySelector(".fullscreen-control");
+
+  map.controls[google.maps.ControlPosition.RIGHT_TOP].push(fullscreenControl);
+  fullscreenControl.onclick = function () {
+    if (isFullscreen(elementToSendFullscreen)) {
+      exitFullscreen();
+    } else {
+      requestFullscreen(elementToSendFullscreen);
+    }
+  };
+
+  document.onwebkitfullscreenchange =
+    document.onmsfullscreenchange =
+    document.onmozfullscreenchange =
+    document.onfullscreenchange =
+      function () {
+        if (isFullscreen(elementToSendFullscreen)) {
+          fullscreenControl.classList.add("is-fullscreen");
+        } else {
+          fullscreenControl.classList.remove("is-fullscreen");
+        }
+      };
+}
+
+function isFullscreen(element) {
+  return (
+    (document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement) == element
+  );
+}
+
+function requestFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.webkitRequestFullScreen) {
+    element.webkitRequestFullScreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.msRequestFullScreen) {
+    element.msRequestFullScreen();
+  }
+}
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+      async function processBounds (){
+        const bounds = map.getBounds();
+        if (bounds) {
+          const northEast = bounds.getNorthEast();
+          let lat = map.getCenter().lat();
+          let lng = map.getCenter().lng();
+          var center = map.getCenter();
+          let radius = google.maps.geometry.spherical.computeDistanceBetween(center, northEast);
+          let radiusKm = metersToKilometers(radius);
+          geoquery(lat,lng,radiusKm); 
+        } // fires geoquery
+      }
+
+      async function geoquery(lat,lng,radius) {
+        var geoKeys = [];
+        var records=[];
+        var geoQuery = geoFire.query({
+          center: [lat,lng],
+          radius: radius
+        });
+
+        var onKeyEnteredRegistration = geoQuery.on("key_entered", function(key, location) {
+          geoKeys.push(key);
+        });
+
+        var onReadyRegistration = geoQuery.on("ready", async function() {
+          if(geoKeys.length > 0){
+            //console.log('Fetching Sites...' + geoKeys);
+            await readFirebaseNodes(geoKeys);
+            colorRegions();
+            setFeaturesObject();
+            drop(sites);
+            
+            highlightRegions();
+          } else {
+            console.log('No sites found.');
+              //toastDown(2000);
+          }
+          //geoQuery.cancel();
+        });        
+      }
+      function colorRegions(){
+        for (var i = 0; i < sites.length; i++) { //color the regions first
+          if(sites[i].val().siteType === "region"){
+            sites[i].color = returnRegionColor(sites[i].val().name)
+          }
+        }
+      }
+      const styleSouth = {
+        strokeColor: 'yellow',
+        strokeWeight: 2.0,
+        strokeOpacity: 1.0,
+        fillColor: 'yellow',
+        fillOpacity: 0.3,
+      };
+      function highlightRegions(){
+        featureLayer.style = (featureStyleFunctionOptions) => {
+          const placeFeature = featureStyleFunctionOptions.feature;
+          var fillColor;
+          //const population = states[placeFeature.placeId];
+          //const siteName = featuresObject[placeFeature.placeId].color;
+          if(featuresObject[placeFeature.placeId]){
+            fillColor = featuresObject[placeFeature.placeId].color || "#ffd600";
+          }
+          
+          return {
+            fillColor,
+            fillOpacity: 0.6,
+          };
+        };
+      }
+
+      function hideRegions(){
+        featureLayer.style = null;
+      }
+
+      function toggleMarkers(siteType){
+        for (var i = 0; i < markers.length; i++) {
+          if(siteType === "region"){
+            if(markers[i].data.siteType === "region"){
+              console.log("toggle marker fired")
+              toggleMarker(markers[i])
+            }
+          }
+          if(siteType === "cloud interconnect"){
+            if(markers[i].data.siteType === "cloud interconnect"){
+              console.log("toggle marker fired")
+              toggleMarker(markers[i])
+            }
+          }
+          //console.log(markers[i].data.name)
+        }
+      }
+
+      function toggleMarker(marker){
+        if(marker.map){
+          marker.map = null;
+        } else {
+          marker.map = map;
+        }        
+      }
+
+      function readFirebaseNodes(keys) {
+          return Promise.all(keys.map(readFirebase));
+      }
+      
+      function readFirebase(key){
+        var record = firebaseSitesRef.child(key);
+        // Get record
+        return record.once('value').then(function(snapshot) {
+          sites.push (snapshot);
+          }, function(error) {
+          // The Promise was rejected.
+          toast('Error Fethcing Site: ' + error);
+        });
+      }
+
+      function drop(filteredSites) {
+        //clearMarkers(true);
+        for (var i = 0; i < filteredSites.length; i++) {
+          //drop toast once markers all dropped
+          if(i === filteredSites.length - 1) {
+            //toastDown(i);
+          } 
+          //addMarkerWithTimeout(filteredSites[i], i * timer);
+          displaySite(filteredSites[i]);
+        }
+      }
+
+      function returnRandomColor(){
+
+        //if
+        return randomColor;
+      }
+
+function createRegionControl(map) {
+  const controlButton = document.createElement("button");
+  controlButton.classList.add("control-button")
+  controlButton.style.backgroundColor = "#fff";
+  controlButton.style.border = "2px solid #fff";
+  controlButton.style.borderRadius = "3px";
+  controlButton.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+  controlButton.style.color = "rgb(25,25,25)";
+  controlButton.style.cursor = "pointer";
+  controlButton.style.fontFamily = "Roboto,Arial,sans-serif";
+  controlButton.style.fontSize = "16px";
+  controlButton.style.lineHeight = "38px";
+  controlButton.style.margin = "12px";
+  controlButton.style.padding = "0 5px";
+  controlButton.style.textAlign = "center";
+  controlButton.textContent = "Regions";
+  controlButton.title = "Click to show / hide regions";
+  controlButton.type = "button";
+  // Setup the click event listeners: simply set the map to Chicago.
+  controlButton.addEventListener("click", () => {
+
+    if(featureLayer.style){
+      hideRegions();
+    } else {
+      highlightRegions();
+    }
+    toggleMarkers("region");
+  });
+  return controlButton;
+}
+
+function createinterconnectControl(map) {
+  const interconnectButton = document.createElement("button");
+  interconnectButton.style.backgroundColor = "#fff";
+  interconnectButton.style.border = "2px solid #fff";
+  interconnectButton.style.borderRadius = "3px";
+  interconnectButton.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+  interconnectButton.style.color = "rgb(25,25,25)";
+  interconnectButton.style.cursor = "pointer";
+  interconnectButton.style.fontFamily = "Roboto,Arial,sans-serif";
+  interconnectButton.style.fontSize = "16px";
+  interconnectButton.style.lineHeight = "38px";
+  interconnectButton.style.margin = "12px";
+  interconnectButton.style.padding = "0 5px";
+  interconnectButton.style.textAlign = "center";
+  interconnectButton.textContent = "Cloud Interconnects";
+  interconnectButton.title = "Click to show / hide Cloud Interconnect locations";
+  interconnectButton.type = "button";
+  // Setup the click event listeners: simply set the map to Chicago.
+  interconnectButton.addEventListener("click", () => {
+    toggleMarkers("cloud interconnect");
+  });
+  return interconnectButton;
+}
+
+// function createInfoControl(map) {
+
+//   const imgEl = document.createElement("img");
+//   imgEl.height = "48px";
+//   imgEl.width = "48px";
+//   imgEl.src = "https://ronnievsmith.com/media/help.png";
+//   imgEl.alt = "Help";
+//   // Setup the click event listeners: simply set the map to Chicago.
+//   imgEl.addEventListener("click", () => {
+//   const bound = map.getBounds();
+//   let p = bound.getSouthWest();
+//     infoWindow.setContent(returnHelp());
+//     infoWindow.open(map);
+//   });
+//   return imgEl;
+// }
+
+// function returnHelp(){
+//   let p = document.createElement("p");
+//   let pText = document.createTextNode("A server periodically calls the listAsync method on Google&#39;s Node.js compute engine&#39;s InterconnectLocationsClient, geocodes the addresses, then stores the list in Firebase&#39;s Realtime Database. As the maps bounds_change event initializes and fires, a geofire geoquery is performed. Google Cloud Interconnect locations shown below. Click the location in the map for more detail.");
+//   p.appendChild(pText);
+//   return p;
+// }
+
+
+
+function returnRegionColor(name){
+  let items = ["#d50000","#00c853","#2962ff","#ffd600"];
+  let randomColor = items[Math.floor(Math.random()*items.length)];
+  if (name.indexOf("east") !== -1) {
+    return items[0];
+  } 
+  if (name.indexOf("west") !== -1) {
+    return items[1];
+  } 
+  if (name.indexOf("central") !== -1) {
+    return items[2];
+  } 
+  if (name.indexOf("south") !== -1) {
+    return items[3];
+  }
+  return randomColor;
+}
+
+      function setFeaturesObject(){
+        //let states = {};
+        for (var i = 0; i < sites.length; i++) {
+          if(sites[i].val().siteType === "region"){
+            featuresObject[sites[i].val().state.placeId] = {};
+            featuresObject[sites[i].val().state.placeId].name = sites[i].val().name;
+            featuresObject[sites[i].val().state.placeId].color = sites[i].color;
+          }
+        }
+      }
+
+      function displaySite(site){
+        try{
+          var p;
+          var marker;
+          var pin;
+          const glyphImg = document.createElement("img");
+          if(site.val().siteType === "cloud interconnect"){
+            p = new google.maps.LatLng(site.val().lat, site.val().lng);
+            //glyphImg.src ="https://ronnievsmith.com/media/cloud-interconnect.png";
+            pin = new google.maps.marker.PinElement({
+              //glyph: glyphImg,
+              background: "#424242",
+              borderColor: "#424242",
+              glyphColor: "#424242",
+              scale: 0.8,
+            });
+            marker = new google.maps.marker.AdvancedMarkerElement({
+              position: p,
+              map: map,
+              title: site.val().facilityProvider,
+              //content: buildContent(site),
+              content: pin.element,
+              collisionBehavior: "OPTIONAL_AND_HIDES_LOWER_PRIORITY",
+              gmpClickable: true,
+            });
+            marker.data = {
+                name: site.val().name,
+                description: site.val().description,
+                siteType: site.val().siteType
+            };
+            marker.addListener("click", (domEvent) => {
+              const { target } = domEvent;
+              infoWindow.setContent(buildContent(site));
+              infoWindow.open(marker.map, marker);
+            });
+            
+          }
+
+          if(site.val().siteType === "region"){ //style state unless
+            p = new google.maps.LatLng(site.val().location.latitude, site.val().location.longitude);            
+            glyphImg.src ="https://ronnievsmith.com/media/google-cloud-platform.svg";
+            pin = new google.maps.marker.PinElement({
+              glyph: glyphImg,
+              background: site.color,
+              borderColor: site.color,
+            });
+            marker = new google.maps.marker.AdvancedMarkerElement({
+              position: p,
+              map: map,
+              title: site.val().name,
+              collisionBehavior: "REQUIRED_AND_HIDES_OPTIONAL",
+              content: pin.element,
+              // gmpClickable: true,
+            });
+            marker.data = {
+                name: site.val().name,
+                description: site.val().description,
+                siteType: site.val().siteType
+            };
+          }
+          markers.push(marker);
+        } catch (e) {
+          console.log("error adding marker: " + e);
+        }
+      }
+
+      function addMarkerWithTimeout (site, timeout){
+        //var dropTimer = window.setTimeout(function() {
+        try{
+          //var p = new google.maps.LatLng(site.val().lat, site.val().lng);
+
+
+        } catch (e) {
+          console.log("error adding marker: " + e);
+        }
+        //}, timeout)
+      }
+
+      function debounce(func) {
+        delay = 3000;
+        let timeoutId;
+        return function() {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => func.apply(this, arguments), delay);
+        };
+      }
+
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+      
+      function metersToKilometers(meters) {
+        return meters / 1000;
+      }
+
+      function toggleHighlight(markerView) {
+        if (markerView.content.classList.contains("site-show-more")) {
+          markerView.content.classList.remove("site-show-more");
+          markerView.zIndex = null;
+        } else {
+          markerView.content.classList.add("site-show-more");
+          markerView.zIndex = 1;
+        }
+      }
+
+      function buildContent(site) {
+        const siteEl = document.createElement("div");
+        siteEl.classList.add("site");
+        if(site.val().status){
+          if(site.val().status.toLowerCase() === "available"){
+            siteEl.classList.add("available");
+          }
+        }
+        const siteHeaderEl = document.createElement("div");
+        const siteHeaderText = document.createTextNode(site.val().facilityProvider);
+        const img = document.createElement("img");
+        img.src ="https://ronnievsmith.com/media/cloud-interconnect.svg";
+        //const siteHeaderText = document.createTextNode("I");
+        siteHeaderEl.classList.add("site-header");
+        siteHeaderEl.appendChild(img);
+        siteHeaderEl.appendChild(siteHeaderText);
+        
+        const siteDetailsEl = document.createElement("div");
+        siteDetailsEl.classList.add("site-details");
+
+        const siteDescriptionEl = document.createElement("div");
+        siteDescriptionEl.classList.add("site-description");
+        const addressStringHtml = site.val().address.replace(/\n/g, "<br>")
+        const siteAddressText = document.createTextNode(site.val().address);
+        const siteAnchorEl = document.createElement("a");
+        siteAnchorEl.href = "http://maps.google.com/maps?q=&layer=c&cbll=" + site.val().lat + "," + site.val().lng;
+        siteAnchorEl.target = "_blank";
+        
+        siteDescriptionEl.appendChild(siteAnchorEl);
+        const streetViewText = document.createTextNode("street view");
+        siteAnchorEl.appendChild(streetViewText);
+        
+        const siteAddressEl = document.createElement("div");
+        siteAddressEl.classList.add("site-address");
+
+        siteAddressEl.innerHTML = addressStringHtml;
+        siteDetailsEl.appendChild(siteDescriptionEl);
+        siteDetailsEl.appendChild(siteAddressEl);
+
+        const nameDiv = document.createElement("div");
+        const nameLabelEl = document.createElement("label");
+        const nameLabelText = document.createTextNode("Name: ");
+        nameLabelEl.appendChild(nameLabelText);
+        const nameSpanEl = document.createElement("span");
+        const nameSpanText = document.createTextNode(site.val().name);
+        nameSpanEl.appendChild(nameSpanText);
+        nameDiv.appendChild(nameLabelEl);
+        nameDiv.appendChild(nameSpanEl);
+        siteDetailsEl.appendChild(nameDiv);
+
+        const availabilityDiv = document.createElement("div");
+        const availabilityLabelEl = document.createElement("label");
+        const availabilityLabelText = document.createTextNode("Availability Zone: ");
+        availabilityLabelEl.appendChild(availabilityLabelText);
+        const availabilitySpanEl = document.createElement("span");
+        const availabilitySpanText = document.createTextNode(site.val().availabilityZone);
+        availabilitySpanEl.appendChild(availabilitySpanText);
+        availabilityDiv.appendChild(availabilityLabelEl);
+        availabilityDiv.appendChild(availabilitySpanEl);
+        siteDetailsEl.appendChild(availabilityDiv);
+
+        const createdDiv = document.createElement("div");
+        const createdLabelEl = document.createElement("label");
+        const createdLabelText = document.createTextNode("Created: ");
+        createdLabelEl.appendChild(createdLabelText);
+        const createdSpanEl = document.createElement("span");
+        const date = new Date(site.val().creationTimestamp);
+        const localeString = date.toLocaleString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric'
+        });
+        const createdSpanText = document.createTextNode(localeString);
+        createdSpanEl.appendChild(createdSpanText);
+        createdDiv.appendChild(createdLabelEl);
+        createdDiv.appendChild(createdSpanEl);
+        siteDetailsEl.appendChild(createdDiv);
+
+        // const statusDiv = document.createElement("div");
+        // const statusLabelEl = document.createElement("label");
+        // const statusLabelText = document.createTextNode("Status: ");
+        // statusLabelEl.appendChild(statusLabelText);
+        // const statusSpanEl = document.createElement("span");
+        // const statusSpanText = document.createTextNode(site.val().status);
+        // statusSpanEl.appendChild(statusSpanText);
+        // statusDiv.appendChild(statusLabelEl);
+        // statusDiv.appendChild(statusSpanEl);
+        // siteDetailsEl.appendChild(statusDiv);
+
+        //siteEl.appendChild(siteHeaderEl);
+        siteEl.appendChild(siteDetailsEl);
+        return siteEl;
+      }</script></body></html>

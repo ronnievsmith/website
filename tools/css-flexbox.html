@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><script defer="defer" src="https://www.googletagmanager.com/gtag/js?id=G-J4Y121DTE5"></script><title>CSS Flexible Box (Flexbox) Interactive Demo by Ronnie Smith</title><meta property="og:title" content="CSS Flexible Box (Flexbox) Interactive Demo by Ronnie Smith"><meta property="og:site_name" content="Ronnie Smith"><meta property="og:url" content="https://ronnievsmith.com/tools/css-flexbox"><link rel="canonical" href="https://ronnievsmith.com/tools/css-flexbox"><meta property="og:image" content="https://ronnievsmith.com/media/flexbox-demo.jpg"><meta property="twitter:image:src" content="https://ronnievsmith.com/media/flexbox-demo.jpg"><meta name="description" content="Test drive CSS flexbox with automatic layout updates displaying in response to select option changes."><meta property="og:description" content="Test drive CSS flexbox with automatic layout updates displaying in response to select option changes."><link rel="icon" type="image/png" href="../media/favicon-336x336.png" sizes="336x336"><link rel="icon" type="image/png" href="../media/favicon-288x288.png" sizes="288x288"><link rel="icon" type="image/png" href="../media/favicon-240x240.png" sizes="240x240"><link rel="icon" type="image/png" href="../media/favicon-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="../media/favicon-144x144.png" sizes="144x144"><link rel="icon" type="image/png" href="../media/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="../media/favicon-48x48.png" sizes="48x48"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:locale" content="en_US"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200"><meta property="og:type" content="website"><meta name="author" content="Ronnie Smith"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@ronnievsmith"><meta name="twitter:creator" content="@ronnievsmith"><meta property="og:type" content="website"><meta name="theme-color" content="#2962ff"><meta content="IE=Edge" http-equiv="X-UA-Compatible"><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Web Developer Tools",
+        "item": "https://ronnievsmith.com/tools"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "CSS Flexible Box (Flexbox) Interactive Demo",
+        "item": "https://ronnievsmith.com/tools/css-flexbox"
+      }]
+    }</script><style>body{
+/*        font-family: initial !important;*/
+      }
+      .flex-demo * {
+/*        font-family: 'Courier New', monospace;*/
+/*        font-family: 'Roboto', sans-serif;*/
+      }
+      .flex-demo label {
+        color: #9e9e9e;
+      }
+      body > main > section {
+        display: flex;
+        margin-right: 24px;
+        margin-bottom: 24px;
+      }
+      body > main > section h3 {
+        margin: 0px;
+      }
+      body > main > section > div:nth-of-type(1) {
+        flex: 0 1 auto;
+        margin-right: 24px;
+      }
+      body > main > section > div:nth-of-type(2) {
+        flex: 1 1 auto;
+/*        background: #f5f5f5;*/
+      }
+      #outer-container {
+
+      }
+      #outer-container fieldset {
+        height:68%;
+      }
+      #container {
+        height: 100%;
+        background-image:url("../media/container.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      #container > div {
+        margin: 3px;
+        transition: all 0.3s ease-in;
+      }
+      blockquote {
+        border-left: 6px solid #f5f5f5;
+        padding: 12px;
+        
+      }</style><link rel="stylesheet" href="../app.min.css" type="text/css"></head><body class="body-full-wide"><script>if (typeof(Storage) !== "undefined") {
+
+      if(localStorage.getItem("dark-mode")){
+        document.body.classList.add("dark-mode");
+      }
+
+      if(localStorage.getItem("large-text")) {
+        document.body.classList.add("large-text");
+      }
+
+
+      
+    }</script><header><a href="/"><figure><img src="/media/favicon-336x336.png" width="48" height="48" alt="logo"><figcaption>Ronnie Smith<br><small>New Orleans</small></figcaption></figure></a><nav><ul><li><a class="contact" href="#">Contact</a></li><li><search><form class="search-form"><input type="search" class="search" placeholder="search"> <button type="submit">Submit</button></form></search></li><li><button class="theme-button unstyle-button" title="Dark Mode Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button></li><li><button class="text-size-button unstyle-button" title="Text Size Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg></button></li></ul></nav><details><summary></summary><ul><li>FOLLOW</li><li><a href="https://github.com/ronnievsmith">GitHub</a></li><li><a href="https://www.linkedin.com/in/ronnieviennesmith">LinkedIn</a></li><li><a href="https://ronnievsmith.medium.com">Medium</a></li><li><a href="https://stackoverflow.com/users/4797603">Stack Overflow</a></li></ul></details></header><nav><details open><summary></summary><ul style="text-align: right;"><li><search><form class="search-form"><input type="search" class="search" placeholder="search"> <button type="submit">Submit</button></form></search></li><li><button class="theme-button unstyle-button" title="Dark Mode Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button></li><li><button class="text-size-button unstyle-button" title="Text Size Toggle Button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg></button></li><li><a class="contact" href="#">Contact</a></li><li><a href="https://buy.stripe.com/aEUeYe3Uzgj65EcdQQ">Secure Payments</a></li></ul><ul><li>DEVELOPER TOOLS</li><li><a href="/tools/html-element-reference.html">HTML Element Reference</a></li><li><a href="/tools/html-character-codes-collection">HTML Char Codes</a></li><li><a href="/tools/schema-vocabulary-browser">Schema Browser</a></li><li><a href="/tools/css-flexbox">Flexbox Demo</a></li><li><a href="/tools/html-all-in-one">HTML All in 1 Page</a></li><li><a href="/tools/color-swatch-for-web">Material Color Swatch</a></li></ul><ul style="margin-top: 48px;"><li>GOOGLE CLOUD</li><li><a href="/google-cloud/google-cloud-best-practices">Google Cloud Best Practices</a></li><li><a href="/google-cloud/interconnect-locator">Interconnect Locator</a></li></ul></details></nav><main><h1>CSS Flexible Box (Flexbox) Layout Demo</h1><blockquote>In the flex layout model, the children of a flex container can be laid out in any direction, and can 'flex' their sizes, either growing to fill unused space or shrinking to avoid overflowing the parent. Both horizontal and vertical alignment of the children can be easily manipulated. Nesting of these boxes (horizontal inside vertical, or vertical inside horizontal) can be used to build layouts in two dimensions. <cite><a href="https://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout Module Level 1, W3C Candidate Recommendation, 19 November 2018</a></cite></blockquote><section><div><fieldset><legend>CSS</legend><div><h3>#container {</h3><div class="flex-demo" style="display:flex; flex-direction:column" data-id="container"><div><input type="checkbox" name="cb-display"> <label for="display">display:</label> <select disabled="disabled" id="display" name="display" data-property="display"><option selected="selected" value="flex">flex</option><option value="inline-flex">inline-flex</option></select></div><div><input type="checkbox" name="cb-flex-direction"> <label for="flex-direction">flex-direction:</label> <select disabled="disabled" id="flex-direction" name="flex-direction" data-property="flex-direction"><option selected="selected" value="row">row</option><option value="row-reverse">row-reverse</option><option value="column">column</option><option value="column-reverse">column-reverse</option></select></div><div><input type="checkbox" name="cb-flex-wrap"> <label for="flex-wrap">flex-wrap:</label> <select disabled="disabled" id="flex-wrap" name="flex-wrap" data-property="flex-wrap"><option selected="selected" value="nowrap">nowrap</option><option value="wrap">wrap</option><option value="wrap-reverse">wrap-reverse</option></select></div><div><input type="checkbox" name="cb-justify-content"> <label for="justify-content">justify-content:</label> <select disabled="disabled" id="justify-content" name="justify-content" data-property="justify-content"><option selected="selected" value="flex-start">flex-start</option><option value="flex-end">flex-end</option><option value="center">center</option><option value="space-between">space-between</option><option value="space-around">space-around</option></select></div><div><input type="checkbox" name="cb-align-content"> <label for="align-content">align-content:</label> <select disabled="disabled" id="align-content" name="align-content" data-property="align-content"><option selected="selected" value="flex-start">flex-start</option><option value="flex-end">flex-end</option><option value="center">center</option><option value="space-between">space-between</option><option value="space-around">space-around</option><option value="stretch">stretch</option></select></div><div><input type="checkbox" name="cb-align-items"> <label for="align-items">align-items:</label> <select disabled="disabled" id="align-items" name="align-items" data-property="align-items"><option selected="selected" value="flex-start">flex-start</option><option value="flex-end">flex-end</option><option value="center">center</option><option value="baseline">baseline</option><option value="stretch">stretch</option></select></div></div><h3>}</h3><h3>#item-one {</h3><div class="flex-demo" style="display:flex; flex-direction:column" data-id="item-one"><div><input type="checkbox" name="cb-flex-grow"> <label for="item-one-flex-grow">flex-grow:</label> <select disabled="disabled" id="item-one-flex-grow" name="flex-grow" data-property="flex-grow"><option selected="selected" value="0">0</option><option value="1">1</option></select></div><div><input type="checkbox" name="cb-flex-shrink"> <label for="item-one-flex-shrink">flex-shrink:</label> <select disabled="disabled" id="item-one-flex-shrink" name="flex-shrink" data-property="flex-shrink"><option selected="selected" value="1">1</option><option value="0">0</option></select></div><div><input type="checkbox" name="cb-flex-basis"> <label for="item-one-flex-basis">flex-basis:</label> <select disabled="disabled" id="item-one-flex-basis" name="flex-basis" data-property="flex-basis"><optgroup label="Specific"><option value="4em">4em</option><option value="3px">3px</option><option value="50%">50%</option><option selected="selected" value="auto">auto</option><option value="stretch">stretch</option></optgroup><optgroup label="Intrinsic"><option value="max-content">max-content</option><option value="min-content">min-content</option><option value="fit-content">fit-content</option></optgroup><optgroup label="Automatic"><option value="content">content</option></optgroup><optgroup label="Global"><option value="inherit">inherit</option><option value="initial">initial</option><option value="revert">revert</option><option value="revert-layer">revert-layer</option><option value="unset">unset</option></optgroup></select></div><div><input type="checkbox" name="cb-align-self"> <label for="item-one-align-self">align-self:</label> <select disabled="disabled" id="item-one-align-self" name="align-self" data-property="align-self"><optgroup label="Keyword Values"><option selected="selected" value="auto">auto</option><option value="normal">normal</option></optgroup><optgroup label="Positional Alignment"><option value="center">center</option><option value="start">start</option><option value="end">end</option><option value="self-start">self-start</option><option value="self-end">self-end</option><option value="flex-start">flex-start</option><option value="flex-end">flex-end</option></optgroup><optgroup label="Baseline Alignment"><option value="baseline">baseline</option><option value="first baseline">first baseline</option><option value="last baseline">last baseline</option><option value="stretch">stretch</option></optgroup><optgroup label="Overflow Alignment"><option value="safe center">safe center</option><option value="unsafe center">unsafe center</option></optgroup><optgroup label="Global"><option value="inherit">inherit</option><option value="initial">initial</option><option value="revert">revert</option><option value="revert-layer">revert-layer</option><option value="unset">unset</option></optgroup></select></div></div><h3>}</h3></div><div><h3>#item-two {</h3><div class="flex-demo" style="display:flex; flex-direction:column" data-id="item-two"><div><input type="checkbox" name="cb-flex-grow"> <label for="item-two-flex-grow">flex-grow:</label> <select disabled="disabled" id="item-two-flex-grow" name="flex-grow" data-property="flex-grow"><option selected="selected" value="0">0</option><option value="1">1</option></select></div><div><input type="checkbox" name="cb-flex-shrink"> <label for="item-two-flex-shrink">flex-shrink:</label> <select disabled="disabled" id="item-two-flex-shrink" name="flex-shrink" data-property="flex-shrink"><option selected="selected" value="1">1</option><option value="0">0</option></select></div><div><input type="checkbox" name="cb-flex-basis"> <label for="item-two-flex-basis">flex-basis:</label> <select disabled="disabled" id="item-two-flex-basis" name="flex-basis" data-property="flex-basis"><optgroup label="Specific"><option value="4em">4em</option><option value="3px">3px</option><option value="50%">50%</option><option selected="selected" value="auto">auto</option><option value="stretch">stretch</option></optgroup><optgroup label="Intrinsic"><option value="max-content">max-content</option><option value="min-content">min-content</option><option value="fit-content">fit-content</option></optgroup><optgroup label="Automatic"><option value="content">content</option></optgroup><optgroup label="Global"><option value="inherit">inherit</option><option value="initial">initial</option><option value="revert">revert</option><option value="revert-layer">revert-layer</option><option value="unset">unset</option></optgroup></select></div><div><input type="checkbox" name="cb-align-self"> <label for="item-two-align-self">align-self:</label> <select disabled="disabled" id="item-two-align-self" name="align-self" data-property="align-self"><optgroup label="Keyword Values"><option selected="selected" value="auto">auto</option><option value="normal">normal</option></optgroup><optgroup label="Positional Alignment"><option value="center">center</option><option value="start">start</option><option value="end">end</option><option value="self-start">self-start</option><option value="self-end">self-end</option><option value="flex-start">flex-start</option><option value="flex-end">flex-end</option></optgroup><optgroup label="Baseline Alignment"><option value="baseline">baseline</option><option value="first baseline">first baseline</option><option value="last baseline">last baseline</option><option value="stretch">stretch</option></optgroup><optgroup label="Overflow Alignment"><option value="safe center">safe center</option><option value="unsafe center">unsafe center</option></optgroup><optgroup label="Global"><option value="inherit">inherit</option><option value="initial">initial</option><option value="revert">revert</option><option value="revert-layer">revert-layer</option><option value="unset">unset</option></optgroup></select></div></div><h3>}</h3><h3>#item-three {</h3><div class="flex-demo" style="display:flex; flex-direction:column" data-id="item-three"><div><input type="checkbox" name="cb-flex-grow"> <label for="item-three-flex-grow">flex-grow:</label> <select disabled="disabled" id="item-three-flex-grow" name="flex-grow" data-property="flex-grow"><option selected="selected" value="0">0</option><option value="1">1</option></select></div><div><input type="checkbox" name="cb-flex-shrink"> <label for="item-three-flex-shrink">flex-shrink:</label> <select disabled="disabled" id="item-three-flex-shrink" name="flex-shrink" data-property="flex-shrink"><option selected="selected" value="1">1</option><option value="0">0</option></select></div><div><input type="checkbox" name="cb-flex-basis"> <label for="item-three-flex-basis">flex-basis:</label> <select disabled="disabled" id="item-three-flex-basis" name="flex-basis" data-property="flex-basis"><optgroup label="Specific"><option value="4em">4em</option><option value="3px">3px</option><option value="50%">50%</option><option selected="selected" value="auto">auto</option><option value="stretch">stretch</option></optgroup><optgroup label="Intrinsic"><option value="max-content">max-content</option><option value="min-content">min-content</option><option value="fit-content">fit-content</option></optgroup><optgroup label="Automatic"><option value="content">content</option></optgroup><optgroup label="Global"><option value="inherit">inherit</option><option value="initial">initial</option><option value="revert">revert</option><option value="revert-layer">revert-layer</option><option value="unset">unset</option></optgroup></select></div><div><input type="checkbox" name="cb-align-self"> <label for="item-three-align-self">align-self:</label> <select disabled="disabled" id="item-three-align-self" name="align-self" data-property="align-self"><optgroup label="Keyword Values"><option selected="selected" value="auto">auto</option><option value="normal">normal</option></optgroup><optgroup label="Positional Alignment"><option value="center">center</option><option value="start">start</option><option value="end">end</option><option value="self-start">self-start</option><option value="self-end">self-end</option><option value="flex-start">flex-start</option><option value="flex-end">flex-end</option></optgroup><optgroup label="Baseline Alignment"><option value="baseline">baseline</option><option value="first baseline">first baseline</option><option value="last baseline">last baseline</option><option value="stretch">stretch</option></optgroup><optgroup label="Overflow Alignment"><option value="safe center">safe center</option><option value="unsafe center">unsafe center</option></optgroup><optgroup label="Global"><option value="inherit">inherit</option><option value="initial">initial</option><option value="revert">revert</option><option value="revert-layer">revert-layer</option><option value="unset">unset</option></optgroup></select></div></div><h3>}</h3></div></fieldset><fieldset><legend>HTML</legend><code><pre>
+&#60;container id=container&#62;
+  &#60;div id=item-one&#62;item-one&#60;&#47;div&#62;
+  &#60;div id=item-two&#62;item-two&#60;&#47;div&#62;
+  &#60;div id=item-three&#62;item-three&#60;&#47;div&#62;
+&#60;&#47;container&#62;
+                    </pre></code></fieldset></div><div id="outer-container"><fieldset><legend>Container</legend><div id="container"><div id="item-one" style="outline: 2px solid #d50000; color:#d50000;">item-one</div><div id="item-two" style="outline: 2px solid #2962ff; color:#2962ff;">item-two</div><div id="item-three" style="outline: 2px solid #00c853; color:#00c853;">item-three</div><div></div></div></fieldset></div></section></main><footer><p style="font-weight: 100; margin:4px;">All Rights Reserved<br></p><address style="font-weight: 100; font-style: normal; margin:4px;">Ronnie Smith | 400 Poydras Street, Suite 2550 | New Orleans, LA 70130</address><p style="font-weight: 100; font-size:small; margin:4px;"><a href="/privacy">Privacy Policy</a>&nbsp;&nbsp; <a href="/service-terms">Services Terms</a>&nbsp;&nbsp; <a href="/terms">Website Terms</a></p></footer><div id="search-dialog-wrapper"><dialog></dialog></div><script src="../app.min.js"></script><script>let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox){
+            checkbox.addEventListener("change", function (e) {
+                let id = e.target.parentElement.parentElement.dataset.id;
+                let selectElement = e.target.parentElement.querySelector("select");
+                let property = selectElement.dataset.property;
+                let value = selectElement.value;
+                let element = document.getElementById(id);
+                let label = e.target.parentElement.querySelector("label");
+                if (e.currentTarget.checked){
+                    selectElement.disabled = false;
+                    element.style.setProperty(property, value);
+                    label.style.color = "#212121";
+                    label.style.setProperty("font-weight","600");
+                } else {
+                    selectElement.disabled = true;
+                    element.style.removeProperty(property, value);
+                    label.style.color = "#9e9e9e";
+                    label.style.setProperty("font-weight","300");
+                }
+            });
+        });
+        let selects = document.querySelectorAll('select');
+        selects.forEach(function(select){
+            select.addEventListener("change", function (e) {
+                let id = e.target.parentElement.parentElement.dataset.id;
+                let property = e.target.dataset.property;
+                let value = e.target.value;
+                let element = document.getElementById(id);
+                let checkbox = e.target.parentElement.querySelector('input[type="checkbox"]');
+                if (checkbox.checked){
+                    element.style.setProperty(property, value);
+                }
+            });
+        });
+        setTimeout(() => {
+            let selectElement = document.getElementById("display");
+            let id = selectElement.parentElement.parentElement.dataset.id;
+            let label = selectElement.parentElement.querySelector("label");
+            let property = selectElement.dataset.property;
+            let value = selectElement.value;
+            let element = document.getElementById(id);
+            selectElement.parentElement.querySelector("input").checked = true;
+            selectElement.disabled=false;
+            element.style.setProperty(property, value);
+            label.style.color = "#212121";
+            label.style.setProperty("font-weight","600");
+            let div = document.querySelector(".flex-demo > div:nth-of-type(1)");
+            div.style.setProperty("background-color","#ffff00");
+            setTimeout(() => {
+                div.style.setProperty("transition","background-color 3s");
+                div.style.setProperty("background-color","initial");
+            }, 10)
+        }, 2000)</script></body></html>
